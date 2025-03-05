@@ -1,4 +1,5 @@
 // src/components/NonModalTokeDialog.tsx
+// FrontEnd
 import React, { useEffect, useState, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import tokeStore from '../../stores/toke';
@@ -116,9 +117,9 @@ const NonModalTokeDialog: React.FC = observer(() => {
         }}
       >
         {is420Day ? (
-          <FireIcon className="h-5 w-5 mr-1 text-orange-500" />
+          <FireIcon className="w-5 h-5 mr-1 text-orange-500" />
         ) : (
-          <ClockIcon className="h-5 w-5 mr-1" />
+          <ClockIcon className="w-5 h-5 mr-1" />
         )}
         <span>{tokeData.formattedTimeRemaining}</span>
       </div>
@@ -150,7 +151,7 @@ const NonModalTokeDialog: React.FC = observer(() => {
         "text-gray-100"
       )}>
         <div
-          className="px-4 py-3 flex justify-between items-center border-b border-white/10 cursor-grab"
+          className="flex items-center justify-between px-4 py-3 border-b border-white/10 cursor-grab"
           onMouseDown={handleMouseDown}
         >
           <div className={cn(
@@ -161,9 +162,9 @@ const NonModalTokeDialog: React.FC = observer(() => {
           </div>
           <button
             onClick={() => setMinimized(true)}
-            className="rounded-md p-1 text-gray-400 hover:text-gray-200"
+            className="p-1 text-gray-400 rounded-md hover:text-gray-200"
           >
-            <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+            <XMarkIcon className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
 
@@ -180,7 +181,7 @@ const NonModalTokeDialog: React.FC = observer(() => {
 
         <div className="p-4">
           <div className="mt-2 space-y-3">
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <span className="text-sm text-gray-400">Time Remaining:</span>
               <span className={cn(
                 "font-medium",
@@ -190,8 +191,8 @@ const NonModalTokeDialog: React.FC = observer(() => {
               </span>
             </div>
 
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-400">Session:</span>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-400">Toke #:</span>
               <span className={cn(
                 "font-medium",
                 is420Day ? "text-green-400" : "text-orange-400"
@@ -200,7 +201,7 @@ const NonModalTokeDialog: React.FC = observer(() => {
               </span>
             </div>
 
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <span className="text-sm text-gray-400">Initiated by:</span>
               <span className={cn(
                 "font-medium",
@@ -212,7 +213,7 @@ const NonModalTokeDialog: React.FC = observer(() => {
 
             {tokeData.participants.length > 0 && (
               <div>
-                <span className="text-sm text-gray-400 block mb-1">Participants:</span>
+                <span className="block mb-1 text-sm text-gray-400">Participants:</span>
                 <div className="flex flex-wrap gap-2">
                   {tokeData.participants.map((participant, index) => (
                     <div
@@ -232,8 +233,8 @@ const NonModalTokeDialog: React.FC = observer(() => {
             {/* Notifications */}
             {tokeData.notifications && tokeData.notifications.length > 0 && (
               <div>
-                <span className="text-sm text-gray-400 block mb-1">Notifications:</span>
-                <ul className="text-sm max-h-48 overflow-y-auto">
+                <span className="block mb-1 text-sm text-gray-400">Notifications:</span>
+                <ul className="overflow-y-auto text-sm max-h-48">
                   {tokeData.notifications.map((notification, index) => (
                     <li key={index}>{notification}</li>
                   ))}
@@ -243,7 +244,7 @@ const NonModalTokeDialog: React.FC = observer(() => {
           </div>
 
           {/* Join/Cancel buttons */}
-          <div className="mt-4 flex justify-between space-x-2">
+          <div className="flex justify-between mt-4 space-x-2">
             <div className="flex space-x-2">
               <button
                 type="button"
@@ -253,7 +254,7 @@ const NonModalTokeDialog: React.FC = observer(() => {
                 )}
                 onClick={handleJoin}
               >
-                <UserPlusIcon className="h-4 w-4 mr-1" />
+                <UserPlusIcon className="w-4 h-4 mr-1" />
                 Join
               </button>
 

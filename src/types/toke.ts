@@ -13,6 +13,8 @@ export interface TokeUser {
     seshtoker: TokeUser[];
     uid?: string;
     notifications: string[];
+    completedTokes: number;
+    initialTotalSessions: number;
   }
   
   // This interface represents the processed data for display
